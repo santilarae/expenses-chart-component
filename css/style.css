@@ -33,6 +33,7 @@ body {
   grid-template-rows: 1fr min-content;
   place-items: center;
   min-height: 100vh;
+  gap: 1.6rem;
 }
 
 /* ----- Expenses Chart ----- */
@@ -82,8 +83,9 @@ body {
 .chart {
   display: flex;
   justify-content: space-between;
-  padding: 1.8em 0 2.4rem;
+  padding: 5.2em 0 2.4rem;
   border-bottom: 2px solid var(--bg-c);
+  align-items: flex-end;
 }
 .chart__col {
   display: flex;
@@ -92,19 +94,23 @@ body {
   align-items: center;
   justify-content: flex-end;
   cursor: pointer;
+  position: relative;
 }
 
 .chart__col-info {
+    position: absolute;
+    top: -0.8rem;
   background-color: var(--dark-text-c);
   color: var(--chart-bg);
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  padding: 0.4rem;
+  padding: 0.6rem;
   border-radius: 0.4rem;
   opacity: 0;
   transform: translateY(1rem);
   transition: all 0.5s ease;
   transition-delay: 0.2s;
+  z-index: 1;
 }
 .chart__col-bar {
   width: 3.3rem;
@@ -121,7 +127,7 @@ body {
 }
 .chart__col:hover .chart__col-info {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(-100%);
   transition-duration: 0.5s;
   transition-delay: 0s;
 }
@@ -162,6 +168,7 @@ body {
 .attribution {
   font-size: 1.6rem;
   color: var(--light-text-c);
+  text-align: center;
 }
 .attribution a {
   color: var(--dark-text-c);
@@ -172,6 +179,7 @@ body {
 
   .expenses-chart {
     max-width: 54rem;
+    margin-top: 2rem;
   }
   .expenses-chart__header {
     border-radius: 2rem;
@@ -203,10 +211,11 @@ body {
   }
 
   .chart {
-    padding: 2.4em 0 3.6rem;
+    padding: 6.7em 0 3.6rem;
   }
 
   .chart__col-info {
+    top: -1.6rem;
     font-size: 1.6rem;
     padding: 0.8rem;
   }
