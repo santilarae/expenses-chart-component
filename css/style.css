@@ -1,0 +1,241 @@
+:root {
+  --primary-c: hsl(10, 79%, 65%);
+  --secondary-c: hsl(186, 34%, 60%);
+  --chart-bg: hsl(33, 100%, 98%);
+  --bg-c: hsl(27, 66%, 92%);
+
+  --dark-text-c: hsl(25, 47%, 15%);
+  --light-text-c: hsl(28, 10%, 53%);
+}
+
+* {
+  box-sizing: border-box;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "DM Sans", sans-serif;
+}
+
+body {
+  background-color: var(--bg-c);
+  padding: 1.6rem;
+  display: grid;
+  grid-template-rows: 1fr min-content;
+  place-items: center;
+  min-height: 100vh;
+}
+
+/* ----- Expenses Chart ----- */
+.expenses-chart {
+  width: 100%;
+}
+
+.expenses-chart__header {
+  background-color: var(--primary-c);
+  color: var(--chart-bg);
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  border-radius: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.expenses-chart__title {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 0.8rem;
+}
+
+.expenses-chart__balance {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.expenses-chart__logo {
+  width: 6rem;
+  place-self: center;
+  grid-area: 1/2/3/3;
+}
+
+/* ----- Graph ----- */
+
+.graph {
+  background-color: var(--chart-bg);
+  padding: 2.4rem 2rem;
+  border-radius: 0.8rem;
+}
+.graph__title {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+.chart {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.8em 0 2.4rem;
+  border-bottom: 2px solid var(--bg-c);
+}
+.chart__col {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
+.chart__col-info {
+  background-color: var(--dark-text-c);
+  color: var(--chart-bg);
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 0.4rem;
+  border-radius: 0.4rem;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: all 0.5s ease;
+  transition-delay: 0.2s;
+}
+.chart__col-bar {
+  width: 3.3rem;
+  height: 15rem;
+  background-color: var(--primary-c);
+  border-radius: 0.4rem;
+}
+.chart__col-bar--higher {
+  background-color: var(--secondary-c);
+}
+.chart__col-title {
+  font-size: 1.2rem;
+  color: var(--light-text-c);
+}
+.chart__col:hover .chart__col-info {
+  opacity: 1;
+  transform: translateY(0);
+  transition-duration: 0.5s;
+  transition-delay: 0s;
+}
+.chart__col:hover .chart__col-bar {
+  opacity: 0.7;
+}
+/* ----- Graph Results ----- */
+.graph__results {
+  padding-top: 2.4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(3, auto);
+  gap: 0.4rem;
+}
+.graph__total-title,
+.graph__increase-title {
+  font-size: 1.6rem;
+  color: var(--light-text-c);
+}
+.graph__total {
+  font-size: 3rem;
+  color: var(--dark-text-c);
+  font-weight: 700;
+  grid-area: 2/1/4/2;
+}
+.graph__increase-title {
+  grid-area: 3/2/4/3;
+  justify-self: flex-end;
+}
+.graph__increase {
+  font-size: 1.6rem;
+  color: var(--dark-text-c);
+  font-weight: 700;
+  grid-area: 2/2/3/3;
+  justify-self: flex-end;
+}
+/* ----- Attribution ----- */
+.attribution {
+  font-size: 1.6rem;
+  color: var(--light-text-c);
+}
+.attribution a {
+  color: var(--dark-text-c);
+}
+
+@media screen and (min-width: 572px) {
+  /* ----- Expenses Chart ----- */
+
+  .expenses-chart {
+    max-width: 54rem;
+  }
+  .expenses-chart__header {
+    border-radius: 2rem;
+    padding: 2.8rem 3.2rem;
+    margin-bottom: 2.4rem;
+  }
+
+  .expenses-chart__title {
+    font-size: 1.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .expenses-chart__balance {
+    font-size: 3.2rem;
+  }
+
+  .expenses-chart__logo {
+    width: initial;
+  }
+
+  /* ----- Graph ----- */
+
+  .graph {
+    padding: 3.2rem 4rem;
+    border-radius: 2rem;
+  }
+  .graph__title {
+    font-size: 3.2rem;
+  }
+
+  .chart {
+    padding: 2.4em 0 3.6rem;
+  }
+
+  .chart__col-info {
+    font-size: 1.6rem;
+    padding: 0.8rem;
+  }
+
+  .chart__col-bar {
+    width: 5rem;
+  }
+
+  .chart__col-title {
+    font-size: 1.6rem;
+  }
+  /* ----- Graph Results ----- */
+  .graph__results {
+    padding-top: 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 0.8rem;
+  }
+  .graph__total-title,
+  .graph__increase-title,
+  .graph__increase {
+    font-size: 1.8rem;
+  }
+  .graph__total {
+    font-size: 4.8rem;
+  }
+  .graph__increase-title {
+    grid-area: 3/2/4/3;
+    justify-self: flex-end;
+  }
+}
