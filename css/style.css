@@ -115,11 +115,21 @@ body {
 }
 .chart__col-bar {
   width: 3.3rem;
-  height: 15rem;
   background-color: var(--primary-c);
   border-radius: 0.4rem;
+  animation: heightBar 1s ease .5s backwards;
+  transition: all .5s ease;
+  transform-origin: bottom;
 }
-.chart__col-bar--higher {
+@keyframes heightBar {
+  0%{
+    transform: scaleY(0);
+  }
+  100%{
+    transform: scaleY(1);
+  }
+}
+.chart__col-bar--highest {
   background-color: var(--secondary-c);
 }
 .chart__col-title {
