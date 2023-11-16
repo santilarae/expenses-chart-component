@@ -1,7 +1,7 @@
 const chart = document.querySelector(".chart");
 
 async function getData() {
-  const res = await fetch("https://santiagolarae.github.io/expenses-chart-component/data.json");
+  const res = await fetch("https://santilarae.github.io/expenses-chart-component/data.json");
   const data = await res.json();
 
   return data;
